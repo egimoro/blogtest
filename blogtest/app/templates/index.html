@@ -1,15 +1,9 @@
-<html>
-  <head>
-      {% if title %}
-    <title>{{ title }} - Blogtest</title>
-      {% else %}
-    <title>Welcome to Blogtest</title>
-       {% endif %}
-  </head>
-  <body>
-    <h1>Jambo, {{ user.username }} !</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Jambo, {{ current_user.username }}!</h1>
     {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b> </p></div>
-    {% endfor %}
-  </body>
-</html>
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+    </div>
+       {% endblock %}
+{% endblock content %}
