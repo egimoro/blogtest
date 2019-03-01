@@ -20,7 +20,7 @@ def index():
             'body':'The Avengers are stale!'
         }
     ]
-    return render_template('index.html',title='Home',user=user,posts=posts)
+    return render_template('index.html',title='Home',posts=posts)
 
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -38,7 +38,7 @@ def login():
             next_page=url_for('index')
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
-    
+
 @app.route('/logout')
 def logout():
     logout_user()
